@@ -156,6 +156,7 @@ def fingerprint_from_apk(app_path)
 end
 
 def extract_md5_fingerprint(fingerprints)
+  fingerprints = fingerprints.encode!('UTF-8', 'UTF-8', :invalid => :replace)
   log fingerprints
 
   m = fingerprints.scan(/MD5.*((?:[a-fA-F\d]{2}:){15}[a-fA-F\d]{2})/).flatten
